@@ -1,0 +1,99 @@
+{
+	"name": "predictions",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureStorageLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"properties": {
+					"type": "object",
+					"properties": {
+						"type": {
+							"type": "string"
+						},
+						"linkedServiceName": {
+							"type": "string"
+						},
+						"structure": {
+							"type": "array"
+						},
+						"typeProperties": {
+							"type": "object",
+							"properties": {
+								"folderPath": {
+									"type": "string"
+								},
+								"fileName": {
+									"type": "string"
+								},
+								"partitionedBy": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"name": {
+												"type": "string"
+											},
+											"value": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"date": {
+														"type": "string"
+													},
+													"format": {
+														"type": "string"
+													}
+												}
+											}
+										}
+									}
+								},
+								"format": {
+									"type": "object",
+									"properties": {
+										"type": {
+											"type": "string"
+										},
+										"firstRowAsHeader": {
+											"type": "boolean"
+										}
+									}
+								}
+							}
+						},
+						"external": {
+							"type": "boolean"
+						},
+						"availability": {
+							"type": "object",
+							"properties": {
+								"frequency": {
+									"type": "string"
+								},
+								"interval": {
+									"type": "integer"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
